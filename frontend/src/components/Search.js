@@ -23,7 +23,16 @@ function Search(){
 const fetchData=async(value)=>{
   const response= await fetch("http://localhost:3001/")
   const json=await response.json();
+  console.log("search Component")
+
+  console.log(json);
+  console.log("hellllllllllllllllllllllllllllllloooooooooooooo")
+
+  console.log("search data" + SearchData );
+ 
    value=value.toString()
+   console.log(value);
+
   const results=json.filter((user)=>{
     return (
       user &&
@@ -34,7 +43,7 @@ const fetchData=async(value)=>{
         user.area.toLowerCase().includes(value) ||
         user.tag.some(tag => tag.toLowerCase().includes(value)) ||
         (user.price && user.price.toString().includes(value))||
-        user.bhk.toLowerCase()||user.bhk.includes(value)
+        user.bhks.toLowerCase()||user.bhks.includes(value)
         )
       )
       })

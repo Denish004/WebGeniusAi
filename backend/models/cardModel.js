@@ -40,7 +40,7 @@ const userschema = new Schema(
     description: String,
     bhks: {type:String,
       default:"2 BHK"},
-    ameneities: {type:String,default:"Gas"},
+    amenities: {type:String,default:"Gas"},
   },
   { timestamps: true }
 );

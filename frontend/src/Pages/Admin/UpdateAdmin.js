@@ -54,6 +54,7 @@ const handleCard=async(id)=>{
                 name={user.name}
                 location={user.location}
                 img={user.img.img1}
+                area={user.area}
                 tag={user.tag}
                 star={user.star}
                 price={user.price}

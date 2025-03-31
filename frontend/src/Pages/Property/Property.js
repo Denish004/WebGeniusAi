@@ -61,6 +61,7 @@ function Property(){
         console.error("Error fetching users:", error);
       }
     };
+  console.log("seeeeeeacccrchh daaaaataaaaa")
   console.log(SearchData)
     if(SearchData===""){
     
@@ -69,6 +70,9 @@ function Property(){
           // handlebutton2()
           // handlebutton3()
          fetchUsers()
+         console.log(users);
+         console.log("   ------------------ ")
+         console.log(property);
        
         }
       

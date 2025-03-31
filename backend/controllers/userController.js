@@ -28,6 +28,7 @@ let secret=password
   try {
     const user = await User.signup(userType,email, password,username)
     const secret=user.password;
+    console.log("hello")
     // let pass =user.password;
     console.log(secret)
       const r = await axios.post(
