@@ -15,7 +15,7 @@ import { useAuthContext } from "./hooks/useAuthContext.js";
 // import Admin from "./Pages/Adminpage.js";
 import Chatmiddleware from "./Pages/ChatHandler/Chatmiddleware.js";
 import { useEffect, useState } from "react";
-import ChatsPage from "./Pages/ChatHandler/chatsPage.js";
+
 
 import Property from './Pages/Property/Property.js';
 import ProductDetail from './Pages/Property/Productdetail';
@@ -29,7 +29,6 @@ import Reminder from "./Pages/scheduler.js";
 
 export default function App(){
   
-  const [chatUser, setchatUser] = useState({});
   const { user } = useAuthContext();
   
 console.log(user);
@@ -40,8 +39,7 @@ console.log(user);
     
    <div  className="App">
   
-    
-      
+  
       
       <BrowserRouter>
     
@@ -56,12 +54,12 @@ console.log(user);
        <Route path="services" element={<Services/>}/>
        {user && <Route path="profile" element={<Profile/>}/>}
       
-       {!user && <Route path="signup" element={<Signup  onAuth={(chatUser)=>{setchatUser(chatUser)}}/>}/>}
+       {!user && <Route path="signup" element={<Signup/>}/>}
        <Route path="terms&condition" element={<Terms/>}/>
       
        <Route path='properties' element={<Property/>}></Route>
       <Route path='properties/:id' element={<ProductDetail/>}></Route>
-     
+      
       {/* {(user && user.userType==="Admin")&& <Route path="reminder" element={<Reminder/>}/>} */}
 
       {(user && user.userType==="Admin") &&
@@ -76,8 +74,8 @@ console.log(user);
        
        {!user && <Route path="login" element={<Login/>}/>}
       
-       {user && <Route path="chat" element={<Chatmiddleware chatUser={user} setchatUser={setchatUser}/>}/>}
-       {user && <Route path="chatsPage" element={<ChatsPage />}/>}
+       <Route path="chat" element={<Chatmiddleware/>}/>
+
     
 
       {/* <Route path="admin" element={<Admin/>}> */}
@@ -96,7 +94,7 @@ console.log(user);
     
     
     </BrowserRouter>
-    
+   
     </div>
     
       

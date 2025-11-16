@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@talkjs/react-components": "^0.0.28"
+  }
+}

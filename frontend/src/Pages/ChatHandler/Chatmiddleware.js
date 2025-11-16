@@ -1,19 +1,36 @@
-import AuthPage from "./Chatlogin.js";
 import ChatsPage from "./chatsPage";
-import Signup from "../Signup.js";
 import { useAuthContext } from "../../hooks/useAuthContext.js";
-import { useEffect, useState } from "react";
-import Login from "../Login.js";
 
-function Chatmiddleware({ chatUser, setchatUser }) {
-   
+function Chatmiddleware() {
+    const { user } = useAuthContext();
 
-    if (!chatUser) {
-        return <Login/>;
+    // If user is logged in, show the chat page directly
+    if (user) {
+        return <ChatsPage />;
     } else {
-        return <ChatsPage chatUser={chatUser} />;
+        // Redirect to login if not authenticated
+        return (
+            <div style={{ 
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center', 
+                height: '100vh',
+                flexDirection: 'column',
+                gap: '20px'
+            }}>
+                <h2>Please log in to access chat</h2>
+                <a href="/login" style={{
+                    padding: '10px 20px',
+                    backgroundColor: '#667eea',
+                    color: 'white',
+                    textDecoration: 'none',
+                    borderRadius: '5px'
+                }}>
+                    Go to Login
+                </a>
+            </div>
+        );
     }
-  
 }
 
 export default Chatmiddleware;

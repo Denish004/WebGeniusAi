@@ -1,0 +1,23 @@
+{
+  "name": "webgeniusai-selenium-tests",
+  "version": "1.0.0",
+  "description": "Selenium E2E tests for WebGeniusAI",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test_*.js --timeout 60000",
+    "test:signup": "mocha test_signup.js --timeout 30000",
+    "test:login": "mocha test_login.js --timeout 30000",
+    "test:property": "mocha test_property.js --timeout 60000",
+    "test:search": "mocha test_search.js --timeout 30000",
+    "test:workflow": "mocha test_complete_workflow.js --timeout 120000",
+    "test:all": "mocha test_*.js --timeout 60000"
+  },
+  "keywords": ["selenium", "testing", "e2e"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "selenium-webdriver": "^4.16.0"
+  }
+}

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -30,23 +29,25 @@ const fetchData=async(value)=>{
 
   console.log("search data" + SearchData );
  
-   value=value.toString()
+   value=value.toString().toLowerCase()
    console.log(value);
 
   const results=json.filter((user)=>{
     return (
       user &&
-      user.name && (
+      user.name && 
+      value && // Check if value is not empty
+      (
         user.name.toLowerCase().includes(value) ||
         user.location.toLowerCase().includes(value) ||
-        user.star.includes(value) ||
+        user.star.toString().includes(value) ||
         user.area.toLowerCase().includes(value) ||
         user.tag.some(tag => tag.toLowerCase().includes(value)) ||
-        (user.price && user.price.toString().includes(value))||
-        user.bhks.toLowerCase()||user.bhks.includes(value)
-        )
+        (user.price && user.price.toString().includes(value)) ||
+        (user.bhks && user.bhks.toString().toLowerCase().includes(value))
       )
-      })
+    )
+  })
   
   console.log(property,"properrvrvrty");
   searchdispatch({type:'SET_SEARCH',payload:value})

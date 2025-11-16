@@ -49,18 +49,18 @@ app.post("/chat/login", async (req, res) => {
   // return res.json({ user: {} });
 
   // Fetch this user from Chat Engine in this project!
-  try {
-    const r = await axios.get("https://api.chatengine.io/users/me/", {
-      headers: {
-        "Project-ID": "331fc169-7ad0-43aa-946d-9e37e9dc55c8",
-        "User-Name": username,
-        "User-Secret": secret,
-      },
-    });
-    return res.status(r.status).json(r.data);
-  } catch (e) {
-    return res.status(e.response.status).json(e.response.data);
-  }
+  // try {
+  //   const r = await axios.get("https://api.chatengine.io/users/me/", {
+  //     headers: {
+  //       "Project-ID": "331fc169-7ad0-43aa-946d-9e37e9dc55c8",
+  //       "User-Name": username,
+  //       "User-Secret": secret,
+  //     },
+  //   });
+  //   return res.status(r.status).json(r.data);
+  // } catch (e) {
+  //   return res.status(e.response.status).json(e.response.data);
+  // }
 });
 // connect to db
 mongoose.connect(process.env.MONGO_URI)

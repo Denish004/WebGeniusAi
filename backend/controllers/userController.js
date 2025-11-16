@@ -31,11 +31,14 @@ let secret=password
     console.log("hello")
     // let pass =user.password;
     console.log(secret)
-      const r = await axios.post(
-        "https://api.chatengine.io/users/",
-        { username, secret, email, first_name:username, last_name:"" },
-        { headers: { "Private-Key": "d8757ea5-7b8f-4abb-939f-f4faf210b000"} }
-      );
+    
+      // ChatEngine API - Currently not in use
+      // const r = await axios.post(
+      //   "https://api.chatengine.io/users/",
+      //   { username, secret, email, first_name:username, last_name:"" },
+      //   { headers: { "Private-Key": "d8757ea5-7b8f-4abb-939f-f4faf210b000"} }
+      // );
+      
        // create a token
     const token = createToken(user._id)
 
